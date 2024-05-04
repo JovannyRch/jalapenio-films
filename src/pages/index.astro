@@ -1,37 +1,8 @@
 ---
+import ProjectsCarousel from "../components/react/ProjectsCarousel";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Welcome to Astro.">
-  <div class="min-h-screen w-100">
-    <div class="flex items-center justify-center h-full flex-col gap-12">
-      <h1 class="text-4xl font-bold text-white">Directors Mexican Market</h1>
-      <div class="grid grid-cols-3 text-white gap-8 text-xl">
-        <ul>
-          <li>Home</li>
-          <li>Products</li>
-          <li>Services</li>
-          <li>Contacts</li>
-        </ul>
-        <div>
-          <h2>Products</h2>
-          <ul>
-            <li>Product 1</li>
-            <li>Product 2</li>
-            <li>Product 3</li>
-            <li>Product 4</li>
-          </ul>
-        </div>
-        <div>
-          <h2>Services</h2>
-          <ul>
-            <li>Service 1</li>
-            <li>Service 2</li>
-            <li>Service 3</li>
-            <li>Service 4</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
+  <ProjectsCarousel client:load />
 </Layout>
