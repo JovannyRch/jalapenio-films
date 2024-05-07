@@ -15,7 +15,7 @@ const Preview = ({ title, preview, onClick }) => {
         <div className="relative w-full h-full overflow-hidden rounded-lg shadow-lg cursor-pointer">
             <div className="w-full  h-full bg-cover bg-center bg-no-repeat transition-transform transform hover:scale-200" style={{ backgroundImage: `url(${preview})` }} />
         </div>
-        <div className="absolute inset-0 flex flex-col items-start justify-end text-white p-2 bottom-7 md:bottom-0 md:pb-7 ">
+        <div className="absolute inset-0 flex flex-col items-start justify-end text-gray-900 p-2 bottom-7 md:bottom-0 md:pb-7 ">
             <h1 className="md:text-2xl xl:text-3xl sm:text-xl font-bold font-arimo  text-left">{title}</h1>
         </div>
         <div className="w-full h-full top-[40%] left-[42%] absolute">
