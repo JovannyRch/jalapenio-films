@@ -1,6 +1,31 @@
+---
+const links = [
+  {
+    name: "Acerca de Nosotros",
+    url: "/about",
+  },
+  {
+    name: "Directores",
+    url: "{{ route('home') }}",
+  },
+  {
+    name: "Servicios",
+    url: "{{ route('about') }}",
+  },
+  {
+    name: "Clientes",
+    url: "{{ route('contact') }}",
+  },
+  {
+    name: "Contacto",
+    url: "{{ route('contact') }}",
+  },
+];
+---
+
 <div
   id="nav-drawer"
-  class="fixed top-0 right-0 z-40 h-screen p-24 overflow-y-auto transition-transform translate-x-full bg-[rgba(0,0,0,.85)] md:w-1/2 xs:w-full"
+  class="fixed top-0 right-0 z-40 h-screen p-12 md:p-8 xl:p-12 overflow-y-auto transition-transform translate-x-full bg-[rgba(0,0,0,.85)] md:w-1/3 xl:1/4 xs:w-full"
   tabindex="-1"
   aria-labelledby="drawer-right-label"
 >
@@ -28,47 +53,25 @@
   </button>
   <div class="h-full flex flex-col justify-around">
     <ul class="flex flex-col space-y-4 items-end font-arimo">
-      <li>
-        <a
-          href="{{ route('home') }}"
-          class="text-white hover:text-gray-200 dark:text-gray-300 dark:hover:text-gray-200 text-4xl"
-        >
-          Directores
-        </a>
-      </li>
-      <li>
-        <a
-          href="{{ route('about') }}"
-          class="text-white hover:text-gray-200 dark:text-gray-300 dark:hover:text-gray-200 text-4xl"
-        >
-          Servicios
-        </a>
-      </li>
-      <li>
-        <a
-          href="{{ route('contact') }}"
-          class="text-white hover:text-gray-200 dark:text-gray-300 dark:hover:text-gray-200 text-4xl"
-        >
-          Clientes
-        </a>
-      </li>
-      <li>
-        <a
-          href="{{ route('contact') }}"
-          class="text-white hover:text-gray-200 dark:text-gray-300 dark:hover:text-gray-200 text-4xl"
-        >
-          Contacto
-        </a>
-      </li>
+      {
+        links.map((link) => (
+          <li class="text-right">
+            <a
+              href={link.url}
+              class="text-gray-300 hover:text-white hover:font-semi-bold  font-arimo  md:text-2xl xl:text-3xl text-xl text-right"
+            >
+              {link.name}
+            </a>
+          </li>
+        ))
+      }
     </ul>
+
     <ul class="flex justify-end mt-5 space-x-5">
       <li>
-        <a
-          href="#"
-          class="text-gray-300 hover:text-gray-900 dark:hover:text-white dark:text-gray-400"
-        >
+        <a href="#" class="text-gray-300 hover:text-white">
           <svg
-            class="w-10 h-10"
+            class="w-7 h-7 md:w-10 md:h-10"
             fill="currentColor"
             viewBox="0 0 24 24"
             aria-hidden="true"
@@ -81,12 +84,9 @@
         </a>
       </li>
       <li>
-        <a
-          href="#"
-          class="text-gray-300 hover:text-gray-900 dark:hover:text-white dark:text-gray-400"
-        >
+        <a href="#" class="text-gray-300 hover:text-white">
           <svg
-            class="w-10 h-10"
+            class="w-7 h-7 md:w-10 md:h-10"
             fill="currentColor"
             viewBox="0 0 24 24"
             aria-hidden="true"
@@ -99,12 +99,9 @@
         </a>
       </li>
       <li>
-        <a
-          href="#"
-          class="text-gray-300 hover:text-gray-900 dark:hover:text-white dark:text-gray-400"
-        >
+        <a href="#" class="text-gray-300 hover:text-white">
           <svg
-            class="w-10 h-10"
+            class="w-7 h-7 md:w-10 md:h-10"
             fill="currentColor"
             viewBox="0 0 24 24"
             aria-hidden="true"

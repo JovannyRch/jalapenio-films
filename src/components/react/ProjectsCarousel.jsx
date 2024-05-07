@@ -1,58 +1,54 @@
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import Slide from "./Slide";
+import { useState } from "react";
 
 const images = [
     {
-        url: '/images/ritmo-ahorro.png',
+        preview: '/images/ritmo-ahorro.png',
         title: 'El Ritmo del Ahorro',
+        video: 'https://www.youtube.com/watch?v=K4TOrB7at0Y',
     },
     {
-        url: '/images/heroes.png',
+        preview: '/images/heroes.png',
         title: 'Heroes',
+        video: 'https://www.youtube.com/watch?v=K4TOrB7at0Y',
 
     },
     {
-        url: '/images/todo-es-todos.png',
+        preview: '/images/todo-es-todos.png',
         title: 'Todo es Todos',
+        video: 'https://www.youtube.com/watch?v=K4TOrB7at0Y',
     },
     {
-        url: '/images/inmujeres.png',
+        preview: '/images/inmujeres.png',
         title: 'INMUJERES',
+        video: 'https://www.youtube.com/watch?v=K4TOrB7at0Y',
     },
     {
-        url: '/images/cancer-explorate.png',
+        preview: '/images/cancer-explorate.png',
         title: 'Cancer Explorate',
+        video: 'https://www.youtube.com/watch?v=K4TOrB7at0Y',
     },
     {
-        url: '/images/movilastic.png',
+        preview: '/images/movilastic.png',
         title: 'KLEEN BEBE Movilastic',
+        video: 'https://www.youtube.com/watch?v=K4TOrB7at0Y',
     }
 ]
 
 
 
 
-const Slide = ({ src, title = "" }) => {
-
-    return (
-        <div className="px-4 md:h-[75vh] h-[300px] relative">
-            <div className="relative w-full h-full overflow-hidden rounded-lg shadow-lg cursor-pointer">
-                <div className="w-full h-full bg-cover bg-center bg-no-repeat transition-transform transform hover:scale-105" style={{ backgroundImage: `url(${src})` }} />
-            </div>
-            <div className="absolute inset-0 flex flex-col items-start justify-end text-white p-8">
-                <h1 className="text-3xl font-bold font-arimo">{title}</h1>
-            </div>
-        </div>
-    )
-
-}
-
 const ProjectsCarousel = () => {
+    const [isPlaying, setIsPlaying] = useState(false);
     return (
-        <div className="py-8">
-            <Carousel autoPlay showThumbs={false} centerMode infiniteLoop >
+        <div className="py-8 min-h-[50vh] flex flex-col justify-center">
+            <Carousel autoPlay showThumbs={false} centerMode infiniteLoop
+                onChange={() => setIsPlaying(!isPlaying)}
+            >
                 {images.map((slide, i) => (
-                    <Slide src={slide.url} title={slide.title} subtitle={slide.subtitle} key={i} />
+                    <Slide key={i} {...slide} reset={isPlaying} />
                 ))}
             </Carousel>
         </div>
