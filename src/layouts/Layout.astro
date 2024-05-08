@@ -25,14 +25,14 @@ const { title, homePage = false } = Astro.props;
       src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.js"
     ></script>
   </head>
-  <body class="bg-gray-900">
+  <body class="bg-white">
     <nav class="">
       <div
         class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
       >
         <a href="/">
           <img
-            src="/images/logo.png"
+            src="/images/logo-black.png"
             alt="Logo de Jalapeño Films"
             class={`md:h-18 h-12 md:visible ${homePage ? "xs:hidden" : ""}`}
           /></a
@@ -45,6 +45,7 @@ const { title, homePage = false } = Astro.props;
     <div>
       <slot />
     </div>
+    <Footer />
   </body>
 </html>
 <style is:global>

@@ -9,7 +9,7 @@ function AboutWithParallax() {
                 <div
                     class="md:flex-1 text-black flex items-start flex-col justify-start p-12 md:p-16 xl:p-24 font-arimo text-left"
                 >
-                    <h1 class="md:text-6xl text-2xl font-bold mt-8 text-left"
+                    <h1 class="md:text-6xl text-5xl font-bold mt-8 text-left"
                         style={{
                             fontFamily: 'Coolvetica-Crammed'
                         }}
