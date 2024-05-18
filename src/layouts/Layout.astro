@@ -1,14 +1,15 @@
 ---
 import Drawer from "../components/Drawer.astro";
-import Footer from "../components/Footer.astro";
+import LanguageButton from "../components/LanguageButton.astro";
 import MenuButton from "../components/MenuButton.astro";
 
 interface Props {
-  title: string;
+  title?: string;
   homePage?: boolean;
+  lang?: "es" | "en";
 }
 
-const { title, homePage = false } = Astro.props;
+let { title = "Jalapeño films", homePage = false, lang = "es" } = Astro.props;
 ---
 
 <!doctype html>
@@ -19,7 +20,7 @@ const { title, homePage = false } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <title>{title ? `${title} | Jalapeño films` : title}</title>
     <script
       is:inline
       src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.js"
@@ -37,15 +38,23 @@ const { title, homePage = false } = Astro.props;
             class={`md:h-18 h-12 md:visible ${homePage ? "xs:hidden" : ""}`}
           /></a
         >
-        <MenuButton />
-        <Drawer />
+        <div class="flex gap-2 items-center">
+          {
+            lang === "es" ? (
+              <LanguageButton link="/home"> ENGLISH </LanguageButton>
+            ) : (
+              <LanguageButton link="/"> ESPAÑOL </LanguageButton>
+            )
+          }
+          <MenuButton />
+        </div>
+        <Drawer lang={lang} />
       </div>
     </nav>
 
-    <div>
+    <div style={{ minHeight: "calc(100vh - 80px)" }}>
       <slot />
     </div>
-    <Footer />
   </body>
 </html>
 <style is:global>

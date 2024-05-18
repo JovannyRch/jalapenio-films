@@ -1,0 +1,63 @@
+---
+import Footer from "../components/Footer.astro";
+import Layout from "../layouts/Layout.astro";
+
+const list = [
+  {
+    name: "Sara",
+    role: "Director",
+    email: "sara@jalapeño.com",
+    phone: "123-456-7890",
+  },
+  {
+    name: "John",
+    role: "Director",
+    email: "john@jalapeño.com",
+    phone: "123-456-7890",
+  },
+  {
+    name: "Jane",
+    role: "Director",
+    email: "jane@jalapeño.com",
+    phone: "123-456-7890",
+  },
+];
+---
+
+<Layout title="Privacy Policy" lang="en">
+  <div class="container w-md mx-auto xs:w-sm px-8 text-sm">
+    <h1
+      class="text-6xl font-bold text-gray-900 leading-tight mb-4 mt-8"
+      style={{
+        fontFamily: "Coolvetica-Crammed",
+      }}
+    >
+      Directores
+    </h1>
+    {
+      list.map((item) => (
+        <div class="mb-8">
+          <h2 class="text-4xl font-bold text-gray-900 leading-tight mb-4">
+            {item.name}
+          </h2>
+          <p>
+            <strong>Rol:</strong> {item.role}
+          </p>
+          <p>
+            <strong>Correo:</strong> {item.email}
+          </p>
+          <p>
+            <strong>Teléfono:</strong> {item.phone}
+          </p>
+        </div>
+      ))
+    }
+  </div>
+</Layout>
+<Footer lang="en" />
+
+<style>
+  p {
+    margin-bottom: 1rem;
+  }
+</style>

@@ -1,24 +1,40 @@
 ---
+interface Props {
+  lang?: "es" | "en";
+}
+
+const { lang = "es" } = Astro.props;
+
 const links = [
   {
-    name: "Acerca de Nosotros",
-    url: "/about",
+    es_label: "Acerca de Nosotros",
+    en_label: "About Us",
+    en_url: "/about",
+    es_url: "/acerca-de-nosotros",
   },
   {
-    name: "Directores",
-    url: "{{ route('home') }}",
+    es_label: "Directores",
+    en_label: "Directors",
+    en_url: "/directors",
+    es_url: "/directores",
   },
   {
-    name: "Servicios",
-    url: "{{ route('about') }}",
+    es_label: "Servicios",
+    en_label: "Services",
+    en_url: "/services",
+    es_url: "/servicios",
   },
   {
-    name: "Clientes",
-    url: "{{ route('contact') }}",
+    es_label: "Clientes",
+    en_label: "Clients",
+    es_url: "/clientes",
+    en_url: "/clients",
   },
   {
-    name: "Contacto",
-    url: "{{ route('contact') }}",
+    es_label: "Contacto",
+    en_label: "Contact",
+    es_url: "/contacto",
+    en_url: "/contact",
   },
 ];
 ---
@@ -57,10 +73,10 @@ const links = [
         links.map((link) => (
           <li class="text-right">
             <a
-              href={link.url}
+              href={lang === "es" ? link.es_url : link.en_url}
               class="text-gray-300 hover:text-white hover:font-semi-bold  font-arimo  md:text-2xl xl:text-3xl text-xl text-right"
             >
-              {link.name}
+              {lang === "es" ? link.es_label : link.en_label}
             </a>
           </li>
         ))
@@ -69,7 +85,12 @@ const links = [
 
     <ul class="flex justify-end mt-5 space-x-5">
       <li>
-        <a href="#" class="text-gray-300 hover:text-white">
+        <a
+          href="https://www.instagram.com/theliftmx/"
+          rel="noopener noreferrer"
+          target="_blank"
+          class="text-gray-300 hover:text-white"
+        >
           <svg
             class="w-7 h-7 md:w-10 md:h-10"
             fill="currentColor"
@@ -84,7 +105,12 @@ const links = [
         </a>
       </li>
       <li>
-        <a href="#" class="text-gray-300 hover:text-white">
+        <a
+          href="https://www.instagram.com/theliftmx/"
+          rel="noopener noreferrer"
+          target="_blank"
+          class="text-gray-300 hover:text-white"
+        >
           <svg
             class="w-7 h-7 md:w-10 md:h-10"
             fill="currentColor"
@@ -99,7 +125,12 @@ const links = [
         </a>
       </li>
       <li>
-        <a href="#" class="text-gray-300 hover:text-white">
+        <a
+          href="https://twitter.com/the_lift"
+          rel="noopener noreferrer"
+          target="_blank"
+          class="text-gray-300 hover:text-white"
+        >
           <svg
             class="w-7 h-7 md:w-10 md:h-10"
             fill="currentColor"

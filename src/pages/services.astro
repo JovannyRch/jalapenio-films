@@ -1,0 +1,58 @@
+---
+import Footer from "../components/Footer.astro";
+import Layout from "../layouts/Layout.astro";
+
+let services = [
+  {
+    title: "Content creation, production of TV series and programs.",
+    image: "/services/camera-man.jpg",
+  },
+  {
+    title: "Creativity for advertising campaigns.",
+    image: "/services/2.png",
+  },
+  {
+    title: "Production of feature and short films and documentaries.",
+    image: "/services/3.webp",
+  },
+  {
+    title: "Social communication campaigns and advertising spots.",
+    image: "/services/3.webp",
+  },
+  {
+    title: "Political Marketing.",
+    image: "/services/4.jpeg",
+  },
+  {
+    title: "Project management.",
+    image: "/services/3.webp",
+  },
+];
+---
+
+<Layout title="Services" homePage lang="en">
+  <section class="container mx-auto px-4 py-8">
+    <h1
+      class="font-bold text-6xl"
+      style={{
+        fontFamily: "Coolvetica-Crammed",
+      }}
+    >
+      Services
+    </h1>
+  </section>
+
+  <section class="container mx-auto px-4 py-8 font-arimo">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      {
+        services.map((service) => (
+          <div class="p-4 bg-gray-100 rounded-lg min-h-32 flex flex-col justify-center items-center gap-4">
+            <img src={service.image} class="max-w-[300px]" />
+            <p class="text-md text-center text-md font-bold">{service.title}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+</Layout>
+<Footer lang="en" />
