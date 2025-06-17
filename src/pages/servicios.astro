@@ -9,7 +9,7 @@ let services = [
   },
   {
     title: "Creatividad para campañas publicitarias.",
-    image: "/services/2.png",
+    image: "/services/creativity.webp",
   },
   {
     title: "Producción de películas de largo y corto metraje y documentales.",
@@ -17,15 +17,15 @@ let services = [
   },
   {
     title: "Campañas de comunicación social y spots publicitarios.",
-    image: "/services/3.webp",
+    image: "/services/social.webp",
   },
   {
-    title: "Marketing Político.",
-    image: "/services/4.jpeg",
+    title: "Marketing Político",
+    image: "/services/politico.webp",
   },
   {
     title: "Administración de proyectos.",
-    image: "/services/3.webp",
+    image: "/services/projects.webp",
   },
 ];
 ---
@@ -47,7 +47,10 @@ let services = [
       {
         services.map((service) => (
           <div class="p-4 bg-gray-100 rounded-lg min-h-32 flex flex-col justify-center items-center gap-4">
-            <img src={service.image} class="max-w-[300px]" />
+            <img
+              src={service.image}
+              class="max-w-[300px] max-h-[200px] object-cover"
+            />
             <p class="text-md text-center text-md font-bold">{service.title}</p>
           </div>
         ))

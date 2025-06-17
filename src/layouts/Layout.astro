@@ -9,16 +9,19 @@ interface Props {
   lang?: "es" | "en";
 }
 
-let { title = "Jalapeño films", homePage = false, lang = "es" } = Astro.props;
+let { title = "Home", homePage = false, lang = "es" } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
+    <meta name="description" content="Jalapeño Films" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     <meta name="generator" content={Astro.generator} />
     <title>{title ? `${title} | Jalapeño films` : title}</title>
     <script
@@ -33,7 +36,7 @@ let { title = "Jalapeño films", homePage = false, lang = "es" } = Astro.props;
       >
         <a href="/">
           <img
-            src="/images/logo-black.png"
+            src="/images/logo_jalapeno_black.webp"
             alt="Logo de Jalapeño Films"
             class={`md:h-18 h-12 md:visible ${homePage ? "xs:hidden" : ""}`}
           /></a

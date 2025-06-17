@@ -19,7 +19,7 @@ const privacyLabel = isSpanish ? "Aviso de privacidad" : "Privacy policies";
       class="flex flex-col md:flex-row justify-center items-center gap-2 font-md md:text-md text-sm"
     >
       <div class="font-3xl">
-        © Jalapeño Films {new Date().getFullYear()}
+        © Jalapeño Films <span id="year"></span>
       </div>
       <div class="hidden md:block h-6 w-[0.7px] bg-black"></div>
       <a
@@ -28,7 +28,6 @@ const privacyLabel = isSpanish ? "Aviso de privacidad" : "Privacy policies";
         >{termsLabel}</a
       >
       <div class="hidden md:block h-6 w-[0.7px] bg-black"></div>
-
       <a
         class="cursor-pointer"
         href={isSpanish ? "/aviso-de-privacidad" : "/privacy-policies"}
@@ -37,3 +36,9 @@ const privacyLabel = isSpanish ? "Aviso de privacidad" : "Privacy policies";
     </div>
   </div>
 </footer>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("year").textContent = `${new Date().getFullYear()}`;
+  });
+</script>
