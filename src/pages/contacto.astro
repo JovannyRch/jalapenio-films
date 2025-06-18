@@ -3,5 +3,36 @@ import Footer from "../components/Footer.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout homePage lang="es" title="Contacto" />
+<Layout homePage lang="es" title="Contacto">
+  <div class="max-w-xl mx-auto px-6 py-16 text-gray-800 font-arimo">
+    <h1
+      class="text-5xl md:text-6xl font-bold leading-tight mb-6 text-center"
+      style={{
+        fontFamily: "Coolvetica-Crammed",
+      }}
+    >
+      Contacto
+    </h1>
+
+    <div
+      class="bg-white shadow-lg rounded-2xl p-8 space-y-4 text-center border border-gray-200"
+    >
+      <p class="text-lg font-semibold">Paola Orozco</p>
+      <p class="text-sm text-gray-600">Producción</p>
+
+      <p class="text-base">
+        📞 <a href="tel:+527777897487" class="text-black-600 hover:underline"
+          >52 777 789 74 87</a
+        >
+      </p>
+      <p class="text-base">
+        ✉️ <a
+          href="mailto:aranzaporozco@gmail.com"
+          class="text-black-600 hover:underline">aranzaporozco@gmail.com</a
+        >
+      </p>
+    </div>
+  </div>
+</Layout>
+
 <Footer lang="es" />

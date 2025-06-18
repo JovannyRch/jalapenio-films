@@ -1,7 +1,90 @@
 ---
 import Footer from "../components/Footer.astro";
 import Layout from "../layouts/Layout.astro";
+
+const clientLogos = [
+  "https://upload.wikimedia.org/wikipedia/commons/3/30/SECTUR_Logo_2019.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/SALUD_Logo_2019.svg/1024px-SALUD_Logo_2019.svg.png",
+  "https://upload.wikimedia.org/wikipedia/commons/3/3d/SEGOB_Logo_2019.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/5/55/SCT_Logo_2019.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/f/fc/SENER_Logo_2019.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/b/b2/SRE_Logo_2019.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/f/ff/SEDESOL_logo_2012.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/d/db/Logo_del_Conapo.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/6/67/Logo_CONSAR.png",
+  "https://upload.wikimedia.org/wikipedia/commons/c/c5/Logo_del_INAI.png",
+  "https://upload.wikimedia.org/wikipedia/commons/2/2e/Logo_de_la_Loteria_Nacional_%28sin_texto%29.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/c/c9/IFE_logo.gif",
+  "https://upload.wikimedia.org/wikipedia/commons/a/ac/Comisi%C3%B3n_Federal_de_Electricidad_%28logo%29_.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/b/ba/DIF_logo.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/9/99/Logo_Petr%C3%B3leos_Mexicanos.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/b/ba/IMSS_Logos%C3%ADmbolo.png",
+  "https://upload.wikimedia.org/wikipedia/commons/c/c4/Logo_INFONAVIT.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/f/f4/Logo_Partido_Verde_%28M%C3%A9xico%29.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/5/5c/PAN_logo_%28Mexico%29.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/b/b5/PRI_logo_%28Mexico%29.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/f/f3/PSD_logo_%28Mexico%29.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/0/05/BBVA_2019.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/b/b8/Logo_de_Banamex.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/f/fa/American_Express_logo_%282018%29.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/8/89/INEGI.png",
+  "https://upload.wikimedia.org/wikipedia/commons/e/ed/Logo_Bancomext.jpg",
+  "https://cdn.worldvectorlogo.com/logos/telmex-1.svg",
+  "https://www.providencia.org.mx/storage/org-home/October2023/2N6ulf7YseBsOT1hoJSY.png",
+  "https://upload.wikimedia.org/wikipedia/commons/1/1a/Telecom_logo_nuevo.jpg",
+  "https://upload.wikimedia.org/wikipedia/commons/a/ab/Telcel_logo_2022.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/7/7f/LogoUnefon.png",
+  "https://upload.wikimedia.org/wikipedia/en/9/90/Iusacell_logo.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/5/54/ICA_logo.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/4/4b/Burger_King_logo_%281999%E2%80%932020%29.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/4/41/Sealy_Corporation_logo.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/0/0b/Pfizer_logo.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/d/d6/General_Motors_logo.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/d/dd/Logo_Grupo_BIMBO.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/f/f7/Logo_Bayer.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/d/df/ADO_Logo.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/5/51/Citizen_logo.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/5/50/Nestle_textlogo_blue.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/5/52/Philips_logo_new.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/0/02/Nokia_wordmark.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/9/99/Logo_de_Grupo_Lala.svg",
+  "https://upload.wikimedia.org/wikipedia/en/a/a3/Danone_dairy_logo.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/0/0a/Canon_wordmark.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/c/ce/Coca-Cola_logo.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/5/50/McDonald%27s_SVG_logo.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Procter_%26_Gamble_logo.svg/1920px-Procter_%26_Gamble_logo.svg.png",
+  "https://upload.wikimedia.org/wikipedia/commons/3/34/RCA_Electronics_logo.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/7/7c/Helvex_logo.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/f/f9/Palmolive_logo_2016.png",
+  "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/VicksLogo.png/500px-VicksLogo.png",
+  "https://upload.wikimedia.org/wikipedia/en/thumb/2/21/Jarritos_Logo.svg/500px-Jarritos_Logo.svg.png",
+];
 ---
 
-<Layout homePage lang="es" title="Clients" />
+<Layout title="Clientes" lang="es">
+  <div class="max-w-6xl mx-auto px-6 py-16 font-arimo text-center">
+    <h1
+      class="text-4xl md:text-5xl font-bold mb-12"
+      style={{ fontFamily: "Coolvetica-Crammed" }}
+    >
+      Clientes
+    </h1>
+
+    <div
+      class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 place-items-center"
+    >
+      {
+        clientLogos.map((src) => (
+          <img
+            src={src}
+            alt="Logo de cliente"
+            class="h-16 md:h-20 object-contain grayscale hover:grayscale-0 transition"
+            loading="lazy"
+          />
+        ))
+      }
+    </div>
+  </div>
+</Layout>
+
 <Footer lang="es" />
